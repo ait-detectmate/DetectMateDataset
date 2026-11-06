@@ -1,0 +1,17 @@
+# Python packaging output
+*.egg-info/
+build/
+dist/
+
+# Python caches and environments
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Local IDE settings
+.idea/
+
+# Datasets
+src/logdatasets/dbs/*
+*.zip
