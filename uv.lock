@@ -126,7 +126,6 @@ wheels = [
 
 [[package]]
 name = "detectmatedataset"
-version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "detectmateperformance" },
