@@ -1,6 +1,6 @@
-# LogDataset
+# DetectMate Dataset
 
-Allows to process log datasets and use them in `DetectMate`. First time is download and process from the internet, after that the dataset is forever saved in your computer.
+Downloads and processes log datasets for use with `DetectMate`. Datasets are downloaded and processed only once, then cached locally for future use without requiring additional downloads.
 
 ## Install the dependency
 
@@ -35,34 +35,3 @@ from logdatasets import api
 
 db = api.load_dataset("AIT_v2_harrison", "Intranet-Apache", do_cache=True)
 ```
-
-### Transfer dataset
-
-Downloading and procesing a dataset can be time consuming. Alternative if you have a computer with the dataset already instaled, you can transfer to another computer.
-
-#### Activate server
-
-Open a server from the computer with the process dataset.
-
-```bash
-uv run logdataset init_server
-```
-
-### Transfer to client
-
-To transfer to client run the next command:
-
-```bash
-uv run logdataset request_dataset AIT_v2_wilson FileShare-Audit --save_cache
-```
-
-or alternative the transfer can be done from a python code:
-
-```python
-from logdatasets.server.client import get_dataset
-
-ip = ...
-db = get_dataset("AIT_v2_harrison", "Intranet-Apache", ip=ip, save_cache=True)
-```
-
-Note that if `use_cache = False` the dataset will not be permantly save in your computer.

@@ -31,7 +31,8 @@ class Cache:
     @staticmethod
     def check_and_load(file: str) -> pl.DataFrame | None | pl.LazyFrame:
         if not os.path.exists(cache_path):
-            os.mkdir(cache_path)
+            Path(cache_path).mkdir(parents=True, exist_ok=True)
+
 
         if os.path.exists(path := os.path.join(cache_path, file)):
 

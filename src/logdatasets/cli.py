@@ -1,5 +1,3 @@
-from logdatasets.server.client import get_dataset
-
 from logdatasets import api
 
 import argparse
@@ -23,16 +21,6 @@ def get_names_datasets_sub(args: argparse.Namespace) -> None:
 
 def load_datset_func(args: argparse.Namespace) -> None:
     api.load_dataset(args.dataset, args.sub_dataset, do_cache=args.force_download)
-
-
-def start_server_func(args: argparse.Namespace) -> None:
-    from logdatasets.server.server import start_server  # Only start when need it
-    start_server()
-
-
-def get_dataset_func(args: argparse.Namespace) -> None:
-    print(get_dataset(args.dataset, args.sub_dataset, ip=args.ip, save_cache=args.save_cache))
-
 
 def main():
     parser = argparse.ArgumentParser()
@@ -95,39 +83,6 @@ def main():
     )
     load_dataset.set_defaults(func=load_datset_func)
 
-    init_server = commands.add_parser(
-        "init_server",
-        help="Initialize logdataset as a server",
-    )
-    init_server.set_defaults(func=start_server_func)
-
-    request_dataset = commands.add_parser(
-        "request_dataset",
-        help="Initialize logdataset as a server",
-    )
-    request_dataset.add_argument(
-        "dataset",
-        help="Dataset to load"
-    )
-    request_dataset.add_argument(
-        "sub_dataset",
-        nargs="?",
-        help="sub dataset to load",
-        default=""
-    )
-    request_dataset.add_argument(
-        "ip",
-        nargs="?",
-        help="Ip and port of the server http://IP:PORT",
-        default="http://127.0.0.1:8000"
-    )
-    request_dataset.add_argument(
-        "--save_cache",
-        action="store_true",
-        help="Save in the cache."
-    )
-    request_dataset.set_defaults(func=get_dataset_func)
-    
     args = parser.parse_args()
     args.func(args)
 

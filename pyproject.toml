@@ -1,26 +1,44 @@
-# add cmake to build requirements
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=82.0.1", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "LogDatasets"
+name = "DetectMateDataset"
 version = "0.1.0"
-description = "Log datasets"
+description = "Downloads and processes log datasets for use with DetectMate. "
 readme = "README.md"
 requires-python = "==3.13.16"
+authors = [
+    { name = "Elisabeth Woiseschlaeger", email = "aecid@ait.ac.at" },
+    { name = "André García Gómez", email = "aecid@ait.ac.at" },
+    { name = "Viktor Beck", email = "aecid@ait.ac.at" },
+]
 dependencies = [
     "detectmateperformance>=0.1.5",
     "fastapi[standard]>=0.141.1",
+    "numpy",
+    "polars",
     "pytest>=9.1.1",
     "requests>=2.34.2",
     "scipy",
     "tabulate>=0.10.0",
-    "tqdm>=4.68.3",
+    "tqdm>=4.68.3"
 ]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.scripts]
+logdataset = "logdatasets.cli:main"
+
+[project.urls]
+Repository = "https://github.com/ait-detectmate/DetectMateDataset"
+
+[tool.setuptools]
+include-package-data = true
+license-files = ["LICENSE.md"]
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[project.scripts]
-logdataset = "logdatasets.cli:main"
