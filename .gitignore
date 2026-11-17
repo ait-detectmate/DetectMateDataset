@@ -15,3 +15,6 @@ __pycache__/
 # Datasets
 src/logdatasets/dbs/*
 *.zip
+
+# uv cache
+.uv/
