@@ -4,10 +4,17 @@ Downloads and processes log datasets for use with `DetectMate`. Datasets are dow
 
 ## Install the dependency
 
-This will add the dependency in another project venv.
+From this repository's root directory, install into the active virtual environment:
 
 ```bash
-uv pip install ../DetectMateExperiments/LogData/
+uv pip install .
+```
+
+To install into another project's virtual environment, run this from that project
+and provide the path to this repository:
+
+```bash
+uv pip install /path/to/DetectMateDataset
 ```
 
 ## Usage
