@@ -32,7 +32,7 @@ uv run logdataset -h
 To download dataset for the first time do like the example.
 
 ```bash
-uv run logdataset load_dataset AIT_v2_harrison Intranet-Apache 
+uv run logdataset load_dataset AIT_v2_harrison Intranet-Apache
 ```
 
 Alternative you can load the dataset from a python code:
