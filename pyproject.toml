@@ -18,7 +18,6 @@ dependencies = [
     "fastapi[standard]>=0.141.1",
     "numpy",
     "polars",
-    "pytest>=9.1.1",
     "requests>=2.34.2",
     "scipy",
     "tabulate>=0.10.0",
@@ -28,6 +27,16 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
 ]
+
+[dependency-groups]
+# add dependencies in this section with: uv add --optional dev <package>
+# install with all the dev dependencies:  uv pip install -e .[dev]
+dev = [
+    "prek>=0.2.8",
+    "pytest>=8.4.2",
+    "pytest-cov>=6.2.1",
+]
+
 
 [project.scripts]
 logdataset = "logdatasets.cli:main"
