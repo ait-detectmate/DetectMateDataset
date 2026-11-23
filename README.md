@@ -42,3 +42,13 @@ from logdatasets import api
 
 db = api.load_dataset("AIT_v2_harrison", "Intranet-Apache", do_cache=True)
 ```
+
+
+## Developers
+
+Install dependencies and commit hook.
+
+```bash
+uv sync --dev
+uv run prek install
+```

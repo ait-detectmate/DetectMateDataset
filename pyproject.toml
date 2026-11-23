@@ -21,7 +21,7 @@ dependencies = [
     "requests>=2.34.2",
     "scipy",
     "tabulate>=0.10.0",
-    "tqdm>=4.68.3"
+    "tqdm>=4.68.3",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
