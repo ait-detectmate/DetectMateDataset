@@ -7,27 +7,36 @@ name = "DetectMateDataset"
 dynamic = ["version"]
 description = "Downloads and processes log datasets for use with DetectMate. "
 readme = "README.md"
-requires-python = "==3.13.16"
+requires-python = ">=3.12"
 authors = [
     { name = "Elisabeth Woiseschlaeger", email = "aecid@ait.ac.at" },
     { name = "André García Gómez", email = "aecid@ait.ac.at" },
     { name = "Viktor Beck", email = "aecid@ait.ac.at" },
 ]
 dependencies = [
-    "detectmateperformance>=0.1.5",
+    "detectmateperformance>=0.2.1",
     "fastapi[standard]>=0.141.1",
     "numpy",
     "polars",
-    "pytest>=9.1.1",
     "requests>=2.34.2",
     "scipy",
     "tabulate>=0.10.0",
-    "tqdm>=4.68.3"
+    "tqdm>=4.68.3",
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
 ]
+
+[dependency-groups]
+# add dependencies in this section with: uv add --optional dev <package>
+# install with all the dev dependencies:  uv pip install -e .[dev]
+dev = [
+    "prek>=0.2.8",
+    "pytest>=8.4.2",
+    "pytest-cov>=6.2.1",
+]
+
 
 [project.scripts]
 logdataset = "logdatasets.cli:main"
